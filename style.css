@@ -236,12 +236,15 @@ header.sticky {
 }
 
 .head-section {
-    background-image: url(img/download.jpg);
+    background-color: #13132E;
+    background-image: linear-gradient(135deg, rgba(19, 19, 46, 0.95) 0%, rgba(19, 19, 46, 0.88) 55%, rgba(255, 56, 56, 0.65) 100%), url(img/download.jpg);
     width: 100%;
-    height: 130vh;
+    min-height: 100vh;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
 }
 
 
@@ -252,7 +255,7 @@ header {
     padding: 17px 39px;
     position: absolute;
     width: 100%;
-    z-index: 1;
+    z-index: 10;
 }
 
 .logo {
@@ -306,18 +309,20 @@ nav ul li a.active {
     background: var(--primary-red);
     color: white;
     text-decoration: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    font-size: 17px;
+    font-size: 16px;
     transition: transform 0.3s;
     border-radius: 30px;
     overflow: hidden;
-    padding: 10px 30px 10px 13px;
+    padding: 8px 28px 8px 10px;
     position: relative;
     text-transform: uppercase;
     font-weight: 700;
-    gap: 20px;
+    gap: 15px;
     z-index: 1;
+    width: fit-content;
+    max-width: fit-content;
     transition: color 0.4s ease;
 
 }
@@ -326,12 +331,14 @@ nav ul li a.active {
 .btn-circle {
     background: white;
     color: var(--primary-red);
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -340,29 +347,15 @@ nav ul li a.active {
     position: relative;
     display: flex;
     align-items: center;
-    background-image: linear-gradient(90deg, #13132E 63%, rgba(255, 56, 56, 0.7098039216) 83%);
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.9;
+    min-height: 100vh;
+    background: transparent;
+    padding: 120px 0 60px;
 }
 
 
 .bg-image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-image: url('download.jpg');
-    background-size: cover;
-    background-position: center;
-
-    opacity: 0.15;
-    z-index: -1;
-    mix-blend-mode: overlay;
+    display: none;
 }
 
 .container {
@@ -400,18 +393,10 @@ nav ul li a.active {
 
 .hero-bottom {
     display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.btn-main {
-    padding: 8px 30px 8px 8px;
-    font-size: 16px;
-}
-
-.btn-main .btn-circle {
-    width: 40px;
-    height: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 35px;
 }
 
 .client-satisfaction {
@@ -422,36 +407,38 @@ nav ul li a.active {
 
 .avatars {
     display: flex;
-}
-
-.avatars img,
-.avatars .avatar-count {
-    width: 100%;
-    height: 58px;
-    object-fit: cover;
-}
-
-.avatars img:first-child {
-    margin-left: 0;
-}
-
-.avatar-count {
-    background: var(--primary-red);
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
+    flex-shrink: 0;
 }
 
-.satisfaction-text h4 {
-    font-size: 20px;
-
+.avatars img {
+    height: 50px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    display: block;
 }
 
 .satisfaction-text {
-    line-height: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    line-height: 1.3;
+}
+
+.satisfaction-text h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.satisfaction-text span {
+    font-size: 14px;
     color: #b0b0b0;
+    line-height: 1.2;
 }
 
 
