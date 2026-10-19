@@ -4,47 +4,28 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. GLOBAL MOBILE MENU OVERLAY & NAVIGATION DRAWER
-   -------------------------------------------------------------------------- */
-.menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    z-index: 1001;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.menu-overlay.active {
-    display: block;
-    opacity: 1;
-}
-
-/* --------------------------------------------------------------------------
-   2. TABLET & MOBILE BREAKPOINT (max-width: 1024px)
+   1. TABLET & MOBILE BREAKPOINT (max-width: 1024px)
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
 
-    /* --- Header & Navigation Drawer --- */
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 16px 28px;
-        z-index: 1000;
+    /* --- Fixed Header (No transform or animation on scroll) --- */
+    header,
+    header.sticky {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 16px 28px !important;
+        z-index: 9999 !important;
         background: rgba(13, 14, 27, 0.95);
         backdrop-filter: blur(8px);
+        transform: none !important;
+        animation: none !important;
     }
 
     header.sticky {
-        padding: 14px 28px;
+        background: #ffffff !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .header-actions {
@@ -56,7 +37,7 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        z-index: 1002;
+        z-index: 10002 !important;
         width: 44px;
         height: 44px;
         border-radius: 8px;
@@ -69,33 +50,35 @@
     }
 
     header.sticky .menu-toggle i {
-        color: #111111;
+        color: #111111 !important;
     }
 
-    /* Off-canvas Nav Drawer */
+    /* Off-canvas Nav Drawer - Strictly fixed to viewport, scrolls internally */
     nav#nav-menu {
-        position: fixed;
-        top: 0;
-        right: -320px;
-        width: 300px;
-        max-width: 85vw;
-        height: 100vh;
-        height: 100dvh;
-        background-color: #1a1b2f;
-        z-index: 1003;
+        position: fixed !important;
+        top: 0 !important;
+        right: -340px !important;
+        width: 300px !important;
+        max-width: 85vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        background-color: #1a1b2f !important;
+        z-index: 99999 !important;
         display: flex !important;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 25px 20px 30px;
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow-y: auto;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        padding: 25px 20px 30px !important;
+        box-shadow: -8px 0 35px rgba(0, 0, 0, 0.7) !important;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
     }
 
     nav#nav-menu.active {
-        right: 0;
+        right: 0 !important;
     }
 
+    /* Close Button (X icon) */
     .close-menu {
         display: flex !important;
         align-items: center;
@@ -103,21 +86,22 @@
         position: absolute;
         top: 20px;
         right: 20px;
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
         cursor: pointer;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.08);
-        transition: background 0.2s ease;
+        background: rgba(255, 255, 255, 0.12);
+        z-index: 100000 !important;
+        transition: all 0.2s ease;
     }
 
     .close-menu i {
-        color: #ffffff;
-        font-size: 20px;
+        color: #ffffff !important;
+        font-size: 22px;
     }
 
     .close-menu:hover {
-        background: var(--primary-red);
+        background: var(--primary-red) !important;
     }
 
     .logo-2 {
@@ -550,17 +534,16 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. MOBILE SCREEN BREAKPOINT (max-width: 768px)
+   2. MOBILE SCREEN BREAKPOINT (max-width: 768px)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
 
     /* --- Header --- */
-    header {
-        padding: 14px 18px;
-    }
-
+    header,
     header.sticky {
-        padding: 12px 18px;
+        padding: 14px 18px !important;
+        transform: none !important;
+        animation: none !important;
     }
 
     .logo img {
@@ -975,7 +958,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. SMALL MOBILE BREAKPOINT (max-width: 480px)
+   3. SMALL MOBILE BREAKPOINT (max-width: 480px)
    -------------------------------------------------------------------------- */
 @media (max-width: 480px) {
 
@@ -1049,7 +1032,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   5. DESKTOP INTERACTION (min-width: 769px)
+   4. DESKTOP INTERACTION (min-width: 769px)
    -------------------------------------------------------------------------- */
 @media (min-width: 769px) {
 
