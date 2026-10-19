@@ -55,6 +55,7 @@ if (mobileMenu && navMenu) {
     mobileMenu.addEventListener('click', function(e) {
         e.stopPropagation();
         navMenu.classList.add('active');
+        document.body.classList.add('menu-open');
     });
 }
 
@@ -62,5 +63,6 @@ if (closeMenu && navMenu) {
     closeMenu.addEventListener('click', function(e) {
         e.stopPropagation();
         navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
     });
 }

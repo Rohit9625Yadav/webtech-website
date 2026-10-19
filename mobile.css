@@ -4,11 +4,20 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. TABLET & MOBILE BREAKPOINT (max-width: 1024px)
+   1. BODY SCROLL LOCK WHEN DRAWER IS OPEN
+   -------------------------------------------------------------------------- */
+body.menu-open {
+    overflow: hidden !important;
+    height: 100vh !important;
+    touch-action: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. TABLET & MOBILE BREAKPOINT (max-width: 1024px)
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
 
-    /* --- Fixed Header (No transform or animation on scroll) --- */
+    /* --- Fixed Header (No transform or jumping on scroll) --- */
     header,
     header.sticky {
         position: fixed !important;
@@ -63,7 +72,7 @@
         height: 100vh !important;
         height: 100dvh !important;
         background-color: #1a1b2f !important;
-        z-index: 99999 !important;
+        z-index: 999999 !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
@@ -91,7 +100,7 @@
         cursor: pointer;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.12);
-        z-index: 100000 !important;
+        z-index: 1000000 !important;
         transition: all 0.2s ease;
     }
 
@@ -114,34 +123,40 @@
         max-height: 40px;
     }
 
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        gap: 8px;
-        padding: 0;
-        margin: 0 0 25px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 20px;
+    /* Nav Links inside drawer - ALWAYS WHITE, NEVER BLACK */
+    nav#nav-menu ul,
+    header.sticky nav#nav-menu ul {
+        display: flex !important;
+        flex-direction: column !important;
+        list-style: none !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        margin: 0 0 25px 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding-bottom: 20px !important;
     }
 
-    nav ul li a {
-        display: block;
-        color: #f0f0f0;
-        font-size: 16px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        padding: 10px 12px;
-        margin: 0;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: all 0.2s ease;
+    nav#nav-menu ul li a,
+    header nav#nav-menu ul li a,
+    header.sticky nav#nav-menu ul li a {
+        display: block !important;
+        color: #ffffff !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.5px !important;
+        padding: 10px 14px !important;
+        margin: 0 !important;
+        border-radius: 8px !important;
+        text-decoration: none !important;
+        transition: all 0.2s ease !important;
     }
 
-    nav ul li a:hover,
-    nav ul li a.active {
-        color: #ffffff;
-        background-color: var(--primary-red);
+    nav#nav-menu ul li a:hover,
+    nav#nav-menu ul li a.active,
+    header.sticky nav#nav-menu ul li a:hover,
+    header.sticky nav#nav-menu ul li a.active {
+        color: #ffffff !important;
+        background-color: var(--primary-red) !important;
     }
 
     .contact-box {
@@ -179,7 +194,7 @@
     }
 
     .text-side .email-address {
-        color: #ffffff;
+        color: #ffffff !important;
         text-decoration: none;
         word-break: break-all;
         font-size: 13px;
@@ -534,7 +549,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. MOBILE SCREEN BREAKPOINT (max-width: 768px)
+   3. MOBILE SCREEN BREAKPOINT (max-width: 768px)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
 
@@ -958,7 +973,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. SMALL MOBILE BREAKPOINT (max-width: 480px)
+   4. SMALL MOBILE BREAKPOINT (max-width: 480px)
    -------------------------------------------------------------------------- */
 @media (max-width: 480px) {
 
@@ -1032,7 +1047,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. DESKTOP INTERACTION (min-width: 769px)
+   5. DESKTOP INTERACTION (min-width: 769px)
    -------------------------------------------------------------------------- */
 @media (min-width: 769px) {
 

@@ -50,14 +50,16 @@ img {
     display: none;
 }
 
-header.sticky nav ul li a {
-    color: black;
-}
+@media (min-width: 1025px) {
+    header.sticky nav ul li a {
+        color: black;
+    }
 
-header.sticky nav ul {
-    display: flex;
-    list-style: none;
-    gap: 14px;
+    header.sticky nav ul {
+        display: flex;
+        list-style: none;
+        gap: 14px;
+    }
 }
 
 
@@ -234,9 +236,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 17px 39px;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1000;
+    transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo {
